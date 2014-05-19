@@ -1,0 +1,44 @@
+*operator-alignta.txt*	|:Alignta| を呼び出すための operator
+
+
+==============================================================================
+概要						*operator-alignta-introduction*
+
+*operator-alignta* はオペレータから |:Alignta| を呼び出すためのプラグインです。
+
+- Requires
+  operator-user - https://github.com/kana/vim-operator-user
+  vim-alignta   - https://github.com/h1mesuke/vim-alignta
+
+Example: >
+	" operator の呼び出し
+	" {motion} の入力後に :Alignta の引数を入力する
+	nmap <A-a> <Plug>(operator-alignta)
+
+	" <Plug>(operator-alignta) と同等だが
+	" {motion} の入力前に :Alignta の引数を入力する
+	nmap <A-i> <Plug>(operator-alignta-preset)
+
+	" 任意のパターンで整形するマッピングを予め設定しておく場合は
+	" <Plug>(operator-alignta-preset) を利用すると便利
+	nmap <A-i>= <Plug>(operator-alignta-preset)=<CR>
+<
+
+==============================================================================
+インターフェース				*operator-alignta-interface*
+
+------------------------------------------------------------------------------
+マッピング					*operator-alignta-mapping*
+
+<Plug>(operator-alignta-yank){motion}		*<Plug>(operator-alignta)*
+	{motion} に対して|:Alignta| を実行します。
+	{motion} の入力後に |:Alignta|のコマンド引数の入力を行います。
+	
+					*<Plug>(operator-alignta-preset)*
+<Plug>(operator-alignta-preset){motion}
+	{motion} に対して |:Alignta| を実行します。
+	{motion} の入力前 |:Alignta|のコマンド引数の入力を行います。
+
+
+==============================================================================
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
